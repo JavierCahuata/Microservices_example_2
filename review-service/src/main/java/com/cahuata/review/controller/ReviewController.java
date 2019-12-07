@@ -1,5 +1,6 @@
 package com.cahuata.review.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import java.util.Optional;
@@ -27,6 +28,7 @@ public class ReviewController {
 	
 	@PostMapping("/add")
 	public Review add(@RequestBody Review review) {
+		review.setCreateAt(new Date());
 		LOGGER.info("Review add : {}", review);
 		return repository.save(review);
 	}

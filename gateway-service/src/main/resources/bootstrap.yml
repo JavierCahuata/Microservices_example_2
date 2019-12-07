@@ -25,13 +25,18 @@ spring:
       - id: doctor-service
         uri: lb://doctor-service
         predicates:
+        #- Method=GET
         - Path=/doctor/**
-        filters:
-        - RewritePath=/doctor/(?<path>.*), /$\{path}
+        #- Before=2019-12-15T17:42:47.789-07:00[America/Denver]
+        #filters:
+        #- PrefixPath=/doctor
+        #- name: Hystrix
+        #  args:
+        #    name: ReviewClientFallback
+        #    fallbackUri: forward:/review        
       - id: review-service
         uri: lb://review-service
         predicates:
         - Path=/review/**
         filters:
         - RewritePath=/review/(?<path>.*), /$\{path}
-      

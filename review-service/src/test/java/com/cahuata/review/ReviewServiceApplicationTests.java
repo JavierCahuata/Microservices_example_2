@@ -40,7 +40,7 @@ public class ReviewServiceApplicationTests {
 
     @Test
     public void test01add() throws Exception {
-         String uri = "/review/save"; 
+         String uri = "/add"; 
  
          Review review = new Review(1L,"a good doctor with the child 1", "41257930", 4.5 ,new Date());	
          // Review(Long doctorId, String review_des, String patientDni, Double rate, Date createAt)      		                        
